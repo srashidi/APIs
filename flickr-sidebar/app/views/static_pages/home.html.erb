@@ -1,0 +1,24 @@
+<h1>User Selection</h1>
+
+Type in a Flickr User ID below to render that user's pictures.
+<br><br>
+<%= form_tag '/home', method: :get do %>
+	User ID: <%= text_field_tag :id %>
+	<%= submit_tag "Render" %>
+<% end %>
+
+<% if request.original_url.include?("Render") %>
+<div class="flickr">
+	<% i = 1 %>
+	<ul>
+		<% until i >= 12 %>
+			<% @photos.each do |p| %>
+				<li>
+					<%= link_to(image_tag(p.url(:square), :class => 'flickr_photo', :title => p.title, :border => 0, :size => '75x75'), p.url_photopage) %>
+				</li>
+				<% i += 1 %>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+<% end %>

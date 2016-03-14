@@ -16,14 +16,18 @@ class KittensController < ApplicationController
   def show
   	@kitten = Kitten.find(params[:id])
   	respond_to do |format|
+  		format.html
   		format.json { render :json => @kitten }
+  		format.xml 	{ render :xml => @kitten }
   	end
   end
 
   def index
   	@kittens = Kitten.all
   	respond_to do |format|
+  		format.html
   		format.json { render :json => @kittens }
+  		format.xml 	{ render :xml => @kittens }
   	end
   end
 
