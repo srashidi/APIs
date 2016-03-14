@@ -1,0 +1,8 @@
+<h1><%= @kitten.name %></h1>
+
+Age: <strong><%= @kitten.age %></strong><br>
+Cuteness: <strong><%= @kitten.cuteness.capitalize %></strong><br>
+Softness: <strong><%= @kitten.softness.capitalize %></strong>
+
+<br><br>
+<%= link_to "Edit kitten", edit_kitten_path(@kitten) %>
